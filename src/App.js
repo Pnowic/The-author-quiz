@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
+import './bootstrap.min.css';
 
 class App extends Component {
   render() {
     return (
-      <div onClick={this.props.clickHandler}>This div has been clicked {this.props.clicks} times.</div>
+      <div>
+        The author quiz
+      </div>
     );
   }
 }
