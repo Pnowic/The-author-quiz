@@ -62,12 +62,19 @@ const getTurnData = (authors) => {
 };
 
 const state = {
-    turnData: getTurnData(authors)
+    turnData: getTurnData(authors),
+    highlight: 'wrong'
 };
 
-function render (){
-    ReactDOM.render(<App {...state}/>, document.getElementById('root'));
-}
+const onAnswerSelected = (answer) => {
+    const isCorrect = state.turnData.author.books.some((book) => book === answer);
+    state.highlight = isCorrect ? 'correct' : 'wrong';
+    render();
+};
+
+const render = () => {
+    ReactDOM.render(<App {...state} onAnswerSelected={onAnswerSelected}/>, document.getElementById('root'));
+};
 
 registerServiceWorker();
 render();
