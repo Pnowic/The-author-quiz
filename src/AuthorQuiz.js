@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import './App.css';
+import './AuthorQuiz.css';
 import './bootstrap.min.css';
 
 const Hero = (props) => {
@@ -74,16 +75,17 @@ const Footer = (props) => {
 };
 
 
-const App = ({turnData, highlight, onAnswerSelected}) => {
+const AuthorQuiz = ({turnData, highlight, onAnswerSelected}) => {
     return (
         <div className={"container-fluid"}>
             <Hero />
             <Turn {...turnData} highlight={highlight} onAnswerSelected={onAnswerSelected}/>
             <Continue />
+            <p><Link to="/add">Add an author</Link></p>
             <Footer />
         </div>
     );
 
 };
 
-export default App;
+export default AuthorQuiz;

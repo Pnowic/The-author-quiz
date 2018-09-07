@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import AuthorQuiz from './AuthorQuiz';
 import Enzyme, {mount, shallow, render} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() });
@@ -21,13 +21,13 @@ const state = {
 describe("Author Quiz", () => {
     it("renders without crashing", () => {
         const div = document.createElement("div");
-        ReactDOM.render(<App {...state} onAnswerSelected={()=>{}} />, div);
+        ReactDOM.render(<AuthorQuiz {...state} onAnswerSelected={()=>{}} />, div);
     });
 
     describe("When no answer has been selected", ()=>{
         let wrapper;
         beforeAll(()=> {
-            wrapper = mount(<App {...state} onAnswerSelected={()=> {}}/>);
+            wrapper = mount(<AuthorQuiz {...state} onAnswerSelected={()=> {}}/>);
         });
 
         it("should have no background color", () => {
@@ -40,7 +40,7 @@ describe("Author Quiz", () => {
 
         beforeAll(() => {
             wrapper = mount(
-                <App {...(Object.assign({}, state, {highlight: 'wrong'}))} onAnswerSelected={()=>{}} />);
+                <AuthorQuiz {...(Object.assign({}, state, {highlight: 'wrong'}))} onAnswerSelected={()=>{}} />);
         });
 
         it('should have a red background color', () => {
@@ -53,7 +53,7 @@ describe("Author Quiz", () => {
 
         beforeAll(() => {
             wrapper = mount(
-                <App {...(Object.assign({}, state, {highlight: 'correct'}))} onAnswerSelected={()=>{}} />);
+                <AuthorQuiz {...(Object.assign({}, state, {highlight: 'correct'}))} onAnswerSelected={()=>{}} />);
         });
 
         it('should have a green background color', () => {
@@ -67,7 +67,7 @@ describe("Author Quiz", () => {
 
         beforeAll(()=>{
             wrapper = mount(
-                <App {...state} onAnswerSelected={handleAnswerSelected} />);
+                <AuthorQuiz {...state} onAnswerSelected={handleAnswerSelected} />);
             wrapper.find('.answer').first().simulate('click');
         });
 
