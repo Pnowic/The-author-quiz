@@ -1,5 +1,5 @@
 .turn > div {
-  height: 600px;
+  height: 100%;
 }
 
 .turn {
@@ -23,4 +23,8 @@
 
 .answer:hover {
   background-color: #D0E3F0;
+}
+
+.continue {
+  padding: 20px 0;
 }
